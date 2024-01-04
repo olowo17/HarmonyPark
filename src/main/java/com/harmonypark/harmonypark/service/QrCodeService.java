@@ -40,8 +40,15 @@ public class QrCodeService {
     }
     public void generateQr(UserResponseDto data, OutputStream outputStream) throws WriterException, IOException {
         var qrCodeWriter = new QRCodeWriter();
-        BitMatrix bitMatrix = qrCodeWriter.encode(String.valueOf(data), BarcodeFormat.QR_CODE, 200, 200
-        );
+        BitMatrix bitMatrix = qrCodeWriter.encode(
+                "ID: "+data.getId()+ " " +
+                        "\n"+ "Firstname: "+data.getFirstName()+
+                        "\n"+ "Lastname: "+data.getLastName()+
+                        "\n"+ "Email: "+data.getEmail()+
+                        "\n"+"Address: "+data.getAddress()+
+                        "\n"+ "PhoneNumber: "+data.getPhoneNumber()+
+                        "\n"+ "PlateNumber: "+data.getPlateNumber(),
+                BarcodeFormat.QR_CODE, 400, 400);
         MatrixToImageWriter.writeToStream(bitMatrix, "PNG", outputStream);
     }
     public String decodeQr(byte [] data) throws IOException, NotFoundException{
