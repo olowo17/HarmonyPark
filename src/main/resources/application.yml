@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://mike123:Liberty561@cluster0.v2ht5yu.mongodb.net/HarmonyPark?retryWrites=true&w=majority
+      database: HarmonyPark
