@@ -15,7 +15,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -47,6 +46,7 @@ public class QrCodeService {
                         "\n"+ "Email: "+data.getEmail()+
                         "\n"+"Address: "+data.getAddress()+
                         "\n"+ "PhoneNumber: "+data.getPhoneNumber()+
+                        "\n"+ "Role: "+data.getRole()+
                         "\n"+ "PlateNumber: "+data.getPlateNumber(),
                 BarcodeFormat.QR_CODE, 400, 400);
         MatrixToImageWriter.writeToStream(bitMatrix, "PNG", outputStream);

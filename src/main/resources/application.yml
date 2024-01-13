@@ -3,3 +3,26 @@ spring:
     mongodb:
       uri: mongodb+srv://mike123:Liberty561@cluster0.v2ht5yu.mongodb.net/HarmonyPark?retryWrites=true&w=majority
       database: HarmonyPark
+
+
+#Email configuration
+  mail:
+    host: smtp.gmail.com
+    username: olowo.michael179@gmail.com
+    password: wnkpbhyjftjacdln
+    properties:
+      mail:
+        smtp:
+          port: 465
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: true
+
+  google:
+    maps:
+      api:
+        key: key
+        geocode: gecode

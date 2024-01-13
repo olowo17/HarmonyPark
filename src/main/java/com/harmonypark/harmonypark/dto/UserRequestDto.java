@@ -1,6 +1,7 @@
 package com.harmonypark.harmonypark.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.harmonypark.harmonypark.entities.enums.Role;
 import com.harmonypark.harmonypark.entities.enums.Status;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -47,4 +48,7 @@ public class UserRequestDto {
 
     @Enumerated(EnumType.STRING)
     private Status status;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }

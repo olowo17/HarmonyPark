@@ -38,6 +38,7 @@ public class UserServiceImp implements UserService{
         user.setPhoneNumber(userRequestDto.getPhoneNumber());
         user.setPlateNumber(userRequestDto.getPlateNumber());
         user.setPassword(userRequestDto.getPassword());
+        user.setRole(userRequestDto.getRole());
         userRepository.save(user);
         return "success";
     }

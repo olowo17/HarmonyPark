@@ -1,6 +1,7 @@
 package com.harmonypark.harmonypark.dto;
 
 
+import com.harmonypark.harmonypark.entities.enums.Role;
 import com.harmonypark.harmonypark.entities.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,5 +21,6 @@ public class UserResponseDto {
         private String email;
         private LocalDateTime registrationDate;
         private Status status;
+        private Role role;
 
 }
