@@ -22,5 +22,7 @@ public class UserResponseDto {
         private LocalDateTime registrationDate;
         private Status status;
         private Role role;
+        private boolean isTwoFactorEnabled;
+        private String validOtp;
 
 }

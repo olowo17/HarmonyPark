@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.EnumType;
@@ -14,6 +15,7 @@ import javax.persistence.Enumerated;
 import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class UserRequestDto {
 
     @Column(unique = true)

@@ -1,6 +1,8 @@
 package com.harmonypark.harmonypark.controller;
 
+import com.harmonypark.harmonypark.dto.AuthenticationResponse;
 import com.harmonypark.harmonypark.dto.UserRequestDto;
+import com.harmonypark.harmonypark.dto.UserResponseDto;
 import com.harmonypark.harmonypark.service.UserServiceImp;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -24,8 +26,13 @@ public class UserController {
         return new ResponseEntity<>(user,HttpStatus.OK);
     }
     @PostMapping
-    public String registerNewUser (@RequestBody UserRequestDto userRequestDto){
+    public UserResponseDto registerNewUser (@RequestBody UserRequestDto userRequestDto){
        return   userServiceImp.registerUser(userRequestDto);
-
     }
+    @PostMapping("/enableTwoFactor")
+    public String enableTwoFactor (@RequestParam String email){
+         userServiceImp.enableTwoFactor(email);
+         return "Two factor enabled";
+    }
+
 }

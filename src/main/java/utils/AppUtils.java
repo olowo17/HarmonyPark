@@ -1,5 +1,7 @@
 package utils;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import java.util.Random;
 
 public class AppUtils {
@@ -13,4 +15,5 @@ public class AppUtils {
         String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
         return email.matches(regex);
     }
+
 }

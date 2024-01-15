@@ -4,7 +4,6 @@ import com.harmonypark.harmonypark.PushMessage;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
@@ -24,11 +23,10 @@ public class PushMessageController {
         return message;
     }
 
-    // mapped as /app/private
-    @MessageMapping("/private")
-//
-    public void sendToSpecificUser(@Payload PushMessage message){
-        System.out.println("Sending message to /user/specific: " + message);
-        simpMessagingTemplate.convertAndSendToUser(message.getTo(),"/app/private", message);
-    }
+//    // mapped as /app/private
+//    @MessageMapping("/private")
+////
+//    public void sendToSpecificUser(@Payload PushMessage message){
+//        simpMessagingTemplate.convertAndSendToUser(message.getTo(),"/private", message); // /user/test/private
+//    }
 }

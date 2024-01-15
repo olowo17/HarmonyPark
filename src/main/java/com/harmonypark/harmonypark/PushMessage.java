@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PushMessage {
     private String text;
-
     private String to;
 
 }
