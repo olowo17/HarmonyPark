@@ -1,6 +1,4 @@
 package com.harmonypark.harmonypark.controller;
-
-import com.harmonypark.harmonypark.dto.AuthenticationResponse;
 import com.harmonypark.harmonypark.dto.UserRequestDto;
 import com.harmonypark.harmonypark.dto.UserResponseDto;
 import com.harmonypark.harmonypark.service.UserServiceImp;

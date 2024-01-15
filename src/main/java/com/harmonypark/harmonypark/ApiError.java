@@ -21,20 +21,14 @@ public class ApiError {
 
     @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
     private LocalDateTime timeStamp;
-
     @JsonIgnore
     private int status;
-
     private String message;
-
     private String path;
-
     @Setter
     private String errorCode;
-
     @Setter
     private String infoLink;
-
     private List<Object> details = new ArrayList<>();
 
     public ApiError(final int status, final String message, final String path, final ErrorCode errorCode) {

@@ -4,7 +4,6 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.WriterException;
 import com.harmonypark.harmonypark.dto.DecodeQrResponse;
 import com.harmonypark.harmonypark.dto.UserResponseDto;
-import com.harmonypark.harmonypark.entities.User;
 import com.harmonypark.harmonypark.exception.InvalidQrCodeException;
 import com.harmonypark.harmonypark.repositories.UserRepository;
 import com.harmonypark.harmonypark.service.QrCodeService;

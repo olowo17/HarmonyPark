@@ -37,7 +37,7 @@ public class LoginService {
     private final AuthenticationManager authenticationManager;
     private final EmailServiceImp emailService;
     private final HttpServletRequest request;
-    private final UserServiceImp userServiceImp;
+
 
     BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     @Transactional
@@ -75,14 +75,17 @@ public class LoginService {
                 emailService.sendMail(user.getEmail(), subject, body, "text/html");
                 // user should be redirected to where they will verify their otp
                 // Return a placeholder response indicating that OTP verification is pending
-                return new AuthenticationResponse("Pending", user.getFirstName()+ " " +user.getLastName(), user.getRole());
+                return new AuthenticationResponse(
+                        "Pending",
+                        user.getFirstName()+ " " +user.getLastName(),
+                        user.getRole());
 
             } else {
                 // if user.is2FAenabled = false then
                 var userToken = jwtService.generateJwtToken(user);
                 var name = user.getFirstName() + " " + user.getLastName();
                 return new AuthenticationResponse(userToken, name, user.getRole());
-                // else send verification to phone or email and then
+
             }
 
         } catch (Exception e) {
