@@ -72,9 +72,10 @@ public class UserServiceImp implements UserService{
             // OTP is valid, generate a token and construct the AuthenticationResponse
             var userToken = jwtService.generateJwtToken(user);
             var name = user.getFirstName() + " " + user.getLastName();
-
+            var phoneNumber = user.getPhoneNumber();
+            var id = user.getId();
             // Create and return a ResponseEntity with the AuthenticationResponse
-            var authenticationResponse = new AuthenticationResponse(userToken, name, user.getRole());
+            var authenticationResponse = new AuthenticationResponse(userToken, name,user.getRole(), email, phoneNumber, id );
             return ResponseEntity.ok(authenticationResponse);
         }
 

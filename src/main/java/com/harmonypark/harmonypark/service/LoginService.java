@@ -78,14 +78,24 @@ public class LoginService {
                 return new AuthenticationResponse(
                         "Pending",
                         user.getFirstName()+ " " +user.getLastName(),
-                        user.getRole());
+                        user.getRole(),
+                        user.getEmail(),
+                        user.getPhoneNumber(),
+                        user.getId());
 
             } else {
                 // if user.is2FAenabled = false then
                 var userToken = jwtService.generateJwtToken(user);
                 var name = user.getFirstName() + " " + user.getLastName();
-                return new AuthenticationResponse(userToken, name, user.getRole());
-
+                var email = user.getEmail();
+                var phoneNumber = user.getPhoneNumber();
+                var id = user.getId();
+                var savedPassword = user.getPassword();
+                var loginPassword = loginRequest.getPassword(); // Assuming it's already plain text
+                if (passwordEncoder.matches(loginPassword, savedPassword)) {
+                    return new AuthenticationResponse(userToken, name, user.getRole(), email, phoneNumber, id);
+                }
+                throw new UnAuthorizedException("Incorrect password", INVALID_CREDENTIALS);
             }
 
         } catch (Exception e) {

@@ -25,7 +25,18 @@ public class AuthenticationResponse implements Serializable {
     @JsonProperty("name")
     private String name;
 
-    @NotBlank(message = "role must not be blank")
+
     @JsonProperty("role")
     private Role role;
+
+    @JsonProperty("id")
+    private String id;
+
+    @JsonProperty("email")
+    private String email;
+
+    @JsonProperty("phone_number")
+    private String phoneNumber;
+
+
 }
